@@ -12,31 +12,23 @@ namespace WebApplication1.Controllers
     public class ProductController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public string Get()
         {
-            //ma zwracac liste produktów
-            Models.Products allEntity = new Models.Products();
-            
-             String[] information = allEntity.returnAllEntity();
-            return information;
-            //return new string[] { "value1222", "value23333" };
+
+            //return all entity from file
+            Models.Filesupport readFile = new Models.Filesupport();
+            return readFile.loadJsonFile();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get(string id)
         {
-            Models.Products asdf = new Models.Products();
-            string info = asdf.returnList(id);
-            return info;
+            Models.Products findEntity = new Models.Products();
+            string test = findEntity.getEntityUsingId(id);
+            return test;
+
             //ma zwracac produkt o danym id
 
-        }
-
-        public class myModel
-        {
-            public string Key { get; set; }
-            public int Id { get; set; }
-            public double price { get; set; }
         }
 
         [HttpPost]
@@ -56,8 +48,11 @@ namespace WebApplication1.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+      
+            Models.Filesupport remove = new Models.Filesupport();
+            remove.removeSelectValue(id);
             //usuwa produkt
         }
     }

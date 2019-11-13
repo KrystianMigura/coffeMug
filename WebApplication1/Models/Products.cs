@@ -2,21 +2,74 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
+
+
 
 namespace WebApplication1.Models
 {
+    public class Entry
+    {
+        //przeniesc do innego pliku i stworzyc klase
+        public string data {get;set;}
+        public string id { get; set; }
+        public string name { get; set; }
+        public string price { get; set; }
+    }
     public class Products
     {
         public Products() { }
 
-        public string returnList(int param)
+
+        public string getEntityUsingId(string Key)
         {
-            return "jakis absurd :D  "+ param ;
+         
+            //ladowanie pliku w innym pliku z klasa!
+            string jsonFilePath = @".\Models\json.json";
+            string json = File.ReadAllText(jsonFilePath);
+
+
+            List<Entry> test = JsonConvert.DeserializeObject<List<Entry>>(json);
+
+            //odwolanie do klasy w ktorym jest ladowanie z pliku itd.... 
+            string callback ="";
+            bool flag = false;
+            string type = "nie znaleziono";
+            Array size = test.ToArray();
+                
+            for(int i=0; i< size.Length; i++)
+            {
+                if(test[i].id == Key)
+                {
+                    type= "{ id: "+ test[i].id +", \n name: " +test[i].name+", \n price : "+test[i].price+" \n}";
+                }
+
+                if(i == size.Length - 1)
+                {
+                    flag = true;
+                }
+            }
+            if(flag == true)
+            {
+
+                return type;
+            }
+
+            return "";
+            
+
         }
 
-        public string[] returnAllEntity()
+        public string returnList(int param)
         {
-           return new string[] {"data", "1", "2", "3" };
+            return "ASDF";
+
+        }
+
+        public string returnAllEntity()
+        {
+            return "asdfasdfasdf";
         }
 
         public string blabla()
@@ -40,8 +93,11 @@ namespace WebApplication1.Models
 
             if (_Name == true && _Price == true && guid != null)
             {
-                string value = "Id :" + guid + " | " + "Name :" + this.Name + " | " + "Price :" + this.Price + "?";
-                return value;
+
+                Filesupport save = new Filesupport();
+                save.addNewValueToFile(guid, this.Name, this.Price);
+
+                return guid.ToString();
             }
             else
             {
