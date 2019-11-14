@@ -17,7 +17,6 @@ C:\Users\Krystian\source\repos\coffeMug\WebApplication1\obj\Debug\netcoreapp2.1\
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\appsettings.json
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
-C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\Models\json.json
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.deps.json
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.runtimeconfig.json
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\WebApplication1.runtimeconfig.dev.json
@@ -32,3 +31,4 @@ C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\obj\Debug\netco
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.dll
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.pdb
 C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\Models.json.json
+C:\Users\Krystian\source\repos\coffeMug\coffeMug\WebApplication1\bin\Debug\netcoreapp2.1\Models\Products.json

@@ -15,7 +15,6 @@ namespace WebApplication1.Controllers
         public string Get()
         {
 
-            //return all entity from file
             Models.Filesupport readFile = new Models.Filesupport();
             return readFile.loadJsonFile();
         }
@@ -24,36 +23,30 @@ namespace WebApplication1.Controllers
         public ActionResult<string> Get(string id)
         {
             Models.Products findEntity = new Models.Products();
-            string test = findEntity.getEntityUsingId(id);
-            return test;
-
-            //ma zwracac produkt o danym id
+            string product = findEntity.getEntityUsingId(id);
+            return product;
 
         }
 
         [HttpPost]
         public string Post([FromBody] Models.model model )
         {
-            //save entity + validators inside class model
-            return model.ProductCreateInputModel();
+            return model.ProductCreateInputModel();           
+        }
+
+        [HttpPut("{id}")]
+        public void Put(Guid id, [FromBody] Models.Filesupport mod)
+        {
+            Models.Filesupport update = new Models.Filesupport();
+            update.ProductUpdateInputModel(id, mod);
             
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-            //aktualizuje dany produkt
-        }
-
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
-      
             Models.Filesupport remove = new Models.Filesupport();
             remove.removeSelectValue(id);
-            //usuwa produkt
         }
     }
 }
